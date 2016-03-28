@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Search UNLV Library</title>
+	<style type="text/css">
+		body {
+			min-width: 357px;
+			overflow-x: hidden;
+		}
+
+		.left {
+			text-align: center;
+			display: block;
+			width: 170px;
+			float: left;
+		}
+
+		.right, .thumnail {
+			display: block;
+			width: 170px;
+			float: right;
+		}
+
+		.result {
+			display: block;
+			width: 170px;
+			float: left;
+		}
+		.notfound {
+			width: 357px;
+			text-align: center;
+		}
+		#logo {
+			width: 150px;
+			height: 150px;
+		}
+
+		#submit {
+			width: 100px;
+			margin-top: 20px;
+		}
+
+		.information, .main {
+			display: inline-block;
+			width: 360px;
+		}
+
+		.version, .contact, .project {
+			display: block;
+			width: 120px;
+			float: left;
+		}
+
+	</style>
+	<script src="./jquery-2.1.4.js"></script>
+	<script src="./popup.js"></script>
+</head>
+<body>
+	<div class="main">
+		<div class="left">
+			<form>
+				<h3>Book Name (required)</h3>
+				<input id="bookName" required></input>
+
+				<input id="submit" type="button" value="Search!"></input>
+			</form>
+		</div>
+
+		<div class="result">
+			<form>
+				<h3 id="book">book</h3>
+				<h3 id="call_number">call_nubmer</h3>
+				<h3 id="author">author</h3>
+				<h3 id="genra">genra</h3>
+				<h3 id="library">library</h3>
+				<input id="back" type="button" value="Search Another Book"></input>
+			</form>	
+		</div>
+
+		<div class="thumnail">
+			<img src="" id="thumnail">
+		</div>
+
+		<div class="right">
+			<img src="logo.jpg" id="logo">
+		</div>
+
+		<div class="notfound">
+			<h1>Sorry, we don't have any match search in the UNLV Library</h1>
+			<input id="searchAnother" type="button" value="Search Another Book"></input>
+		</div>
+	</div>
+	<div class="information">
+		<div class="version">
+			version 0.1
+		</div>
+		<div class="contact">
+			<a href="mailto:jiakuan.li.cs@gmail.com" target="_blank">Email Author</a>
+		</div>
+		<div class="project">
+			<a href="https://github.com/jiak94/searchUNLVlibrary" target="_blank">View Project</a>
+		</div>
+	</div>
+</body>
+</html>

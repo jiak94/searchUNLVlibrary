@@ -1,0 +1,21 @@
+{
+	"manifest_version": 2,
+	"name": "search UNLV Library",
+	"icons": {
+		"16": "ico.png"
+	},
+	"version": "0.1",
+
+	
+	"description": "A extension to search books from UNLV Library",
+
+	"author": "Jiakuan Li",
+
+	"browser_action": {
+		"default_popup": "popup.html"
+	},
+
+	"permissions": [
+		"https://*/*"
+	]
+}
