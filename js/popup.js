@@ -1,22 +1,24 @@
 $(document).ready(function() {
+	document.getElementById('form').addEventListener("submit", search, false);
 	document.getElementById('submit').addEventListener("click", search, false);
 	document.getElementById('back').addEventListener("click", back, false);
 	document.getElementById('searchAnother').addEventListener("click", back, false);
 	$('.result').hide();
 	$('.thumnail').hide();
 	$('.notfound').hide();
+	$('.loading').hide();
 });
 
 function search() {
 	var checkAuthor = true;
 	var bookName = $('#bookName').val();
 	bookName = bookName.trim();
-	// var authorName = $('#authorName').val();
-	// authorName = authorName.trim();
-	// if (authorName.length == 0) {
-	// 	checkAuthor = false;
-	// }
-
+	if (bookName.length == 0) {
+		notfound();
+		return;
+	}
+	$('.left').hide();
+	$('.loading').show();
 	var requestURL = generateURL(bookName);
 	var data = '';
 	$.ajax({
@@ -38,7 +40,6 @@ function search() {
 			}
 			else {
 				parseHTML(result);
-				// alert(data['title']);
 			}
 		},
 		error: function(jqXHR, textStatus, errorThrown) {
@@ -75,39 +76,46 @@ function getResult(data, bookName) {
 }
 
 function parseHTML(data) {
+	$('.loading').hide();
 	var bookName = data['title'];
 	try {
 		var call_number = data['lc_call_numbers'][0];
 	}
 	catch(err){
-		var call_number = '';
+		var call_number = 'Internet Access';
 	}
 	try {
 		var author = data['authors'][0]['fullname'];
 	}
 	catch(err) {
-		var author = '';
+		var author = 'Undefine';
 	}
 	try {
 		var genra = data['genres'][0];
 	}
 	catch(err) {
-		var genra = '';
+		var genra = 'Undefine';
 	}
 	try {
 		var library = data['libraries'][0];
 	}
 	catch(err) {
-		var library = '';
+		var library = 'Undefine';
 	}
 	try {
 		var thumnail = data['thumbnail_medium'];
 	}
 	catch(err) {
-		var thumnail = "notfound.jpg";
+		var thumnail = "./img/notfound.jpg";
+	}
+	try {
+		var link = data['link'];
+	}
+	catch (err) {
+		var link = '#';
 	}
 
-	$('#book').text(bookName);
+	$('#book').html(bookName);
 	$('#call_number').text(call_number);
 	$('#author').text(author);
 	$('#genra').text(genra);
@@ -115,23 +123,30 @@ function parseHTML(data) {
 
 	$('#thumnail').attr("src", thumnail);
 
+	$('#link').attr("href", link);
+
 	$('.left').hide();
 	$('.right').hide();
+	$('.information').hide();
 
 	$('.result').show();
 	$('.thumnail').show();
 }
 
 function back() {
+	$('.loading').hide();
 	$('.result').hide();
 	$('.thumnail').hide();
 	$('.left').show();
 	$('.right').show();
 	$('.notfound').hide();
+	$('.information').show();
 }
 
 function notfound() {
 	$('.left').hide();
 	$('.right').hide();
+	$('.information').hide();
 	$('.notfound').show();
+	$('.loading').hide();
 }

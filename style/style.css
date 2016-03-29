@@ -1,0 +1,60 @@
+body {
+	min-width: 357px;
+	overflow-x: hidden;
+}
+
+.left, .loading {
+	text-align: center;
+	display: block;
+	width: 170px;
+	float: left;
+}
+
+.right, .thumnail {
+	display: block;
+	width: 170px;
+	float: right;
+}
+
+.result {
+	display: block;
+	width: 170px;
+	float: left;
+}
+.notfound {
+	width: 357px;
+	text-align: center;
+}
+#logo {
+	width: 150px;
+	height: 150px;
+}
+
+#submit {
+	width: 100px;
+	margin-top: 20px;
+}
+
+.information, .main {
+	display: inline-block;
+	width: 360px;
+}
+
+.version, .contact, .project {
+	display: block;
+	width: 120px;
+	float: left;
+}
+
+.tag, .value {
+	width: inherit;
+	display: inline-block;
+}
+
+.tag {
+	font-size: medium;
+}
+
+.value {
+	text-decoration: underline;
+}

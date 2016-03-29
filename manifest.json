@@ -1,8 +1,11 @@
 {
 	"manifest_version": 2,
-	"name": "search UNLV Library",
+	"name": "Search UNLV Library",
 	"icons": {
-		"16": "ico.png"
+		"16": "./img/ico.png",
+		"32": "./img/ico.png",
+		"48": "./img/ico.png",
+		"128": "./img/ico.png"
 	},
 	"version": "0.1",
 

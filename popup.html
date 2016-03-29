@@ -2,79 +2,37 @@
 <html>
 <head>
 	<title>Search UNLV Library</title>
-	<style type="text/css">
-		body {
-			min-width: 357px;
-			overflow-x: hidden;
-		}
-
-		.left {
-			text-align: center;
-			display: block;
-			width: 170px;
-			float: left;
-		}
-
-		.right, .thumnail {
-			display: block;
-			width: 170px;
-			float: right;
-		}
-
-		.result {
-			display: block;
-			width: 170px;
-			float: left;
-		}
-		.notfound {
-			width: 357px;
-			text-align: center;
-		}
-		#logo {
-			width: 150px;
-			height: 150px;
-		}
-
-		#submit {
-			width: 100px;
-			margin-top: 20px;
-		}
-
-		.information, .main {
-			display: inline-block;
-			width: 360px;
-		}
-
-		.version, .contact, .project {
-			display: block;
-			width: 120px;
-			float: left;
-		}
-
-	</style>
-	<script src="./jquery-2.1.4.js"></script>
-	<script src="./popup.js"></script>
+	<link rel="stylesheet" type="text/css" href="./style/style.css">
+	<script src="./js/jquery-2.1.4.js"></script>
+	<script src="./js/popup.js"></script>
 </head>
 <body>
 	<div class="main">
 		<div class="left">
-			<form>
-				<h3>Book Name (required)</h3>
-				<input id="bookName" required></input>
-
+			<form id="form">
+				<h3>Book Title</h3>
+				<input id="bookName" type="text" required></input>
 				<input id="submit" type="button" value="Search!"></input>
 			</form>
 		</div>
 
 		<div class="result">
-			<form>
-				<h3 id="book">book</h3>
-				<h3 id="call_number">call_nubmer</h3>
-				<h3 id="author">author</h3>
-				<h3 id="genra">genra</h3>
-				<h3 id="library">library</h3>
-				<input id="back" type="button" value="Search Another Book"></input>
-			</form>	
+			<b class="tag">Title:</b>
+			<a class="value" id="book"></a>
+			<b class="tag">Call Number:</b>
+			<a class="value" id="call_number"></a>
+			<b class="tag">Author:</b>
+			<a class="value" id="author"></a>
+			<b class="tag">Genre:</b>
+			<a class="value" id="genra"></a>
+			<b class="tag">Location:</b>
+			<a class="value" id="library"></a>
+			<a id="link" href="#" target="_blank">View it at UNLV Library</a>
+			<input id="back" type="button" value="Search Another Book"></input>
+		</div>
+
+		<div class="loading">
+			<img src="./img/loading.gif">
 		</div>
 
 		<div class="thumnail">
@@ -82,7 +40,7 @@
 		</div>
 
 		<div class="right">
-			<img src="logo.jpg" id="logo">
+			<img src="./img/logo.jpg" id="logo">
 		</div>
 
 		<div class="notfound">
@@ -95,7 +53,7 @@
 			version 0.1
 		</div>
 		<div class="contact">
-			<a href="mailto:jiakuan.li.cs@gmail.com" target="_blank">Email Author</a>
+			<a href="mailto:jiakuan.li.cs@gmail.com" target="_blank">Contact Author</a>
 		</div>
 		<div class="project">
 			<a href="https://github.com/jiak94/searchUNLVlibrary" target="_blank">View Project</a>
