@@ -3,6 +3,8 @@ $(document).ready(function() {
 	document.getElementById('submit').addEventListener("click", search, false);
 	document.getElementById('back').addEventListener("click", back, false);
 	document.getElementById('searchAnother').addEventListener("click", back, false);
+	document.getElementById('sendItToMe').addEventListener("click", getEmail, false);
+	document.getElementById('send').addEventListener("click", send, false);
 	$('.result').hide();
 	$('.thumnail').hide();
 	$('.notfound').hide();
@@ -76,6 +78,7 @@ function getResult(data, bookName) {
 }
 
 function parseHTML(data) {
+	$('#sendDetail').hide();
 	$('.loading').hide();
 	var bookName = data['title'];
 	try {
@@ -131,6 +134,13 @@ function parseHTML(data) {
 
 	$('.result').show();
 	$('.thumnail').show();
+
+	$('#sendItToMe').show();
+}
+
+function getEmail() {
+	$('#sendDetail').show();
+	$('#sendItToMe').hide();
 }
 
 function back() {

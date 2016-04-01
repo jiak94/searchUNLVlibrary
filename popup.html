@@ -5,6 +5,7 @@
 	<link rel="stylesheet" type="text/css" href="./style/style.css">
 	<script src="./js/jquery-2.1.4.js"></script>
 	<script src="./js/popup.js"></script>
+	<script src="./js/mailgun.js"></script>
 </head>
 <body>
 	<div class="main">
@@ -28,6 +29,11 @@
 			<b class="tag">Location:</b>
 			<a class="value" id="library"></a>
 			<a id="link" href="#" target="_blank">View it at UNLV Library</a>
+			<form id="sendDetail">
+				<input id="email"></input>
+				<input type="button" id="send" value="Send!">
+			</form>
+			<input type="button" id="sendItToMe" value="Send it to me!">
 			<input id="back" type="button" value="Search Another Book"></input>
 		</div>
 
