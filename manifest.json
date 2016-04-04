@@ -7,7 +7,7 @@
 		"48": "./img/ico.png",
 		"128": "./img/ico.png"
 	},
-	"version": "0.2",
+	"version": "0.2.2",
 
 	
 	"description": "A extension to search books from UNLV Library",

@@ -19,9 +19,10 @@ function search() {
 		notfound();
 		return;
 	}
+	var urlBookName = bookName.split(' ').join('+');
 	$('.left').hide();
 	$('.loading').show();
-	var requestURL = generateURL(bookName);
+	var requestURL = generateURL(urlBookName);
 	var data = '';
 	$.ajax({
 		type: "GET",
@@ -63,8 +64,8 @@ function getResult(data, bookName) {
 	for (var i = 0; i < Object.keys(data['documents']).length; i++) {
 		var item = data['documents'][i];
 		var title = item['title'];
-		title = title.replace('<b>', '');
-		title = title.replace('</b>', '');
+		title = title.split('<b>').join('');
+		title = title.split('</b>').join('');
 		title = title.toLowerCase();
 
 		var substring = bookName.toLowerCase();
